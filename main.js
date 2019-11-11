@@ -44,3 +44,10 @@ var posts = angular.module("postsModule", [])
     .controller("myPosts", ($scope, getService) => {
         $scope.posts=getService.getItems($scope)
     })
+    .controller("scrollController", ($scope, $anchorScroll, $location)=>{
+        $scope.scrollTo = (scrollLocation) =>{
+            $location.hash(scrollLocation);
+            $anchorScroll.yOffset = 100;
+            $anchorScroll();
+        }
+    })

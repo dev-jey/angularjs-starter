@@ -6,24 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Starter</title>
+    <link rel="stylesheet" href="main.css" />
 </head>
 
 <body>
+    <section ng-controller="scrollController">
     Jey Starter
-    <br>
+    <br><br>
     <hr>
+    <button id="top" ng-click="scrollTo('bottom')">Go to Bottom</button>
     <h2>Country Details(Controllers and Modules concepts)</h2>
     <div ng-controller="myController">
         Country: {{country.name}}<br>
-        Capital: {{country.capital}}<br>
-        Flag: <img ng-src="{{country.flag}}" alt="{{country.name + ' flag'}}" style="width: 100px; height: 50px;" />
+        Capital: {{country.capital}}<br><br>
+        <img ng-src="{{country.flag}}" alt="{{country.name + ' flag'}}" style="width: 100px; height: 100px;" />
         <br><br>
         <hr>
-        Christmas Message:<br>
+        Christmas Message:<br><br>
         <input type="text" ng-model="message" />
 
         <div>
-            {{message}}
+            <br>
+            <p style="font-size:12px">{{message}}</p>
         </div>
     </div>
     <br>
@@ -95,6 +99,8 @@
             </li>
         </ul>
     </div>
+    <button id="bottom"  ng-click="scrollTo('top')">Go to Top</button>
+    </section>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
 <script src="./main.js"></script>

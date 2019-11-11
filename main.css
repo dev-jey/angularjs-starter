@@ -1,0 +1,32 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: rgb(188, 240, 240);
+    margin: auto;
+    padding: 3%;
+}
+section{
+    width: 60%;
+    margin: auto;
+}
+@media screen and (max-width: 768px){
+    section{
+        width: 100%;
+    }
+}
+button{
+    color: #fff;
+    background: #000;
+    border: none;
+    width: 100px;
+    height: 60px;
+}
+button:hover{
+    color: #000;
+    cursor: pointer;
+    background: #fff;
+}
+button:focus{
+    outline:none;
+}
