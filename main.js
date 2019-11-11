@@ -41,11 +41,6 @@ var employeesModule = angular.module("employeesModule", [])
 
 
 var posts = angular.module("postsModule", [])
-    .controller("myPosts", ($scope, $http) => {
-        $http.get('https://jsonplaceholder.typicode.com/posts').then((posts) => {
-            console.log('posts', posts)
-            $scope.posts = posts.data;
-        }, (error) => {
-            $scope.error = error.data
-        })
+    .controller("myPosts", ($scope, getService) => {
+        $scope.posts=getService.getItems($scope)
     })
