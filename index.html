@@ -1,17 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myModule">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Starter</title>
 </head>
-<body ng-app="myModule">
-    Jey starter
+
+<body>
+    Jey Starter
+    <br>
+    <hr>
+    <h2>Country Details</h2>
     <div ng-controller="myController">
-        {{message}}
+        Country: {{country.name}}<br>
+        Capital: {{country.capital}}<br>
+        Flag: <img ng-src="{{country.flag}}" alt="{{country.name + ' flag'}}" style="width: 100px; height: 50px;" />
+        <br><br>
+        <hr>
+        Christmas Message:<br>
+        <input type="text" ng-model="message" />
+
+        <div>
+            {{message}}
+        </div>
+    </div>
+    <br>
+    <div ng-controller="techController">
+        Technological Advancements
+        <ul>
+            <li ng-repeat="technol in technologies">{{technol.name}}</li>
+        </ul>
+        <table border="black">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Likes</td>
+                    <td>Dislikes</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="technology in technologies">
+                    <td>
+                        {{technology.name}}
+                    </td>
+                    <td>{{technology.likes}}</td>
+                    <td>
+                        {{technology.dislikes}}
+                    </td>
+                    <td>
+                        <input type="button" value="+" ng-click="incrementLikes(technology)" />
+                    </td>
+                    <td>
+                        <input type="button" value="-" ng-click="decrementLikes(technology)" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
 <script src="./main.js"></script>
+
 </html>
