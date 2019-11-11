@@ -61,6 +61,28 @@
             </tbody>
         </table>
     </div>
+<br><br><hr><br><br>
+    <div ng-controller="myEmployees">
+        Rows to display
+        <input type="number" step="1" min="0" max="{{employees.length}}" ng-model="rowLimit" />
+        <br><br>
+        <table border="grey">
+            <tr>
+                <td>Name</td>
+                <td>Date of birthday</td>
+                <td>Gender</td>
+                <td>Salary Decimals</td>
+                <td>Salary Currency</td>
+            </tr>
+            <tr ng-repeat="emp in employees | limitTo:rowLimit">
+                <td>{{emp.name | uppercase}}</td>
+                <td>{{emp.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+                <td>{{emp.gender | lowercase}}</td>
+                <td>{{emp.salary | number:2 }}</td>
+                <td>{{emp.salary | currency:"$": 1 }}</td>
+            </tr>
+        </table>
+    </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
 <script src="./main.js"></script>
