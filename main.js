@@ -1,6 +1,6 @@
 
 var myApp = angular
-    .module("myModule", ['employeesModule'])
+    .module("myModule", ['employeesModule', 'postsModule'])
     .controller("myController", ($scope) => {
         const country = {
             name: "Kenya",
@@ -37,4 +37,15 @@ var employeesModule = angular.module("employeesModule", [])
             { name: "Jemo", dateOfBirth: new Date("October 01, 1987"), gender: "Male", salary: 210000 }
         ]
         $scope.rowLimit = 1;
+    });
+
+
+var posts = angular.module("postsModule", [])
+    .controller("myPosts", ($scope, $http) => {
+        $http.get('https://jsonplaceholder.typicode.com/posts').then((posts) => {
+            console.log('posts', posts)
+            $scope.posts = posts.data;
+        }, (error) => {
+            $scope.error = error.data
+        })
     })

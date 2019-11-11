@@ -12,7 +12,7 @@
     Jey Starter
     <br>
     <hr>
-    <h2>Country Details</h2>
+    <h2>Country Details(Controllers and Modules concepts)</h2>
     <div ng-controller="myController">
         Country: {{country.name}}<br>
         Capital: {{country.capital}}<br>
@@ -28,7 +28,7 @@
     </div>
     <br>
     <div ng-controller="techController">
-        Technological Advancements
+        Technological Advancements(Render an object with each record displayed)
         <ul>
             <li ng-repeat="technol in technologies">{{technol.name}}</li>
         </ul>
@@ -61,9 +61,10 @@
             </tbody>
         </table>
     </div>
-<br><br><hr><br><br>
+    <br><br>
+    <hr><br><br>
     <div ng-controller="myEmployees">
-        Rows to display
+        Rows to display(Filter rows in a table)
         <input type="number" step="1" min="0" max="{{employees.length}}" ng-model="rowLimit" />
         <br><br>
         <table border="grey">
@@ -74,7 +75,7 @@
                 <td>Salary Decimals</td>
                 <td>Salary Currency</td>
             </tr>
-            <tr ng-repeat="emp in employees | limitTo:rowLimit">
+            <tr ng-repeat="emp in employees | limitTo:rowLimit | orderBy:'+name'">
                 <td>{{emp.name | uppercase}}</td>
                 <td>{{emp.dateOfBirth | date:"dd/MM/yyyy"}}</td>
                 <td>{{emp.gender | lowercase}}</td>
@@ -82,6 +83,17 @@
                 <td>{{emp.salary | currency:"$": 1 }}</td>
             </tr>
         </table>
+    </div>
+    <br><br><hr><br><br>
+    <div ng-controller="myPosts">
+        Posts (Get posts from an API.)
+        <ul>
+            {{error}}
+            <li ng-repeat="post in posts | limitTo: 5">
+                <h1>{{post.title}}</h1>
+                {{post.body}}
+            </li>
+        </ul>
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
