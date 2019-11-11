@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myModule">
+<html lang="en"   ng-app="myModule">
 
 <head>
     <meta charset="UTF-8">
@@ -10,97 +10,98 @@
 </head>
 
 <body>
-    <section ng-controller="scrollController">
-    Jey Starter
-    <br><br>
-    <hr>
-    <button id="top" ng-click="scrollTo('bottom')">Go to Bottom</button>
-    <h2>Country Details(Controllers and Modules concepts)</h2>
-    <div ng-controller="myController">
-        Country: {{country.name}}<br>
-        Capital: {{country.capital}}<br><br>
-        <img ng-src="{{country.flag}}" alt="{{country.name + ' flag'}}" style="width: 100px; height: 100px;" />
-        <br><br>
-        <hr>
-        Christmas Message:<br><br>
-        <input type="text" ng-model="message" />
+        <section ng-controller="scrollController">
+            Jey Starter
+            <br><br>
+            <hr>
+            <button id="top" ng-click="scrollTo('bottom')">Go to Bottom</button>
+            <h2>Country Details(Controllers and Modules concepts)</h2>
+            <div ng-controller="myController">
+                Country: {{country.name}}<br>
+                Capital: {{country.capital}}<br><br>
+                <img ng-src="{{country.flag}}" alt="{{country.name + ' flag'}}" style="width: 100px; height: 100px;" />
+                <br><br>
+                <hr>
+                Christmas Message:<br><br>
+                <input type="text" ng-model="message" />
 
-        <div>
+                <div>
+                    <br>
+                    <p style="font-size:12px">{{message}}</p>
+                </div>
+            </div>
             <br>
-            <p style="font-size:12px">{{message}}</p>
-        </div>
-    </div>
-    <br>
-    <div ng-controller="techController">
-        Technological Advancements(Render an object with each record displayed)
-        <ul>
-            <li ng-repeat="technol in technologies">{{technol.name}}</li>
-        </ul>
-        <table border="black">
-            <thead>
-                <tr>
-                    <td>Name</td>
-                    <td>Likes</td>
-                    <td>Dislikes</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="technology in technologies">
-                    <td>
-                        {{technology.name}}
-                    </td>
-                    <td>{{technology.likes}}</td>
-                    <td>
-                        {{technology.dislikes}}
-                    </td>
-                    <td>
-                        <input type="button" value="+" ng-click="incrementLikes(technology)" />
-                    </td>
-                    <td>
-                        <input type="button" value="-" ng-click="decrementLikes(technology)" />
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <br><br>
-    <hr><br><br>
-    <div ng-controller="myEmployees">
-        Rows to display(Filter rows in a table)
-        <input type="number" step="1" min="0" max="{{employees.length}}" ng-model="rowLimit" />
-        <br><br>
-        <table border="grey">
-            <tr>
-                <td>Name</td>
-                <td>Date of birthday</td>
-                <td>Gender</td>
-                <td>Salary Decimals</td>
-                <td>Salary Currency</td>
-            </tr>
-            <tr ng-repeat="emp in employees | limitTo:rowLimit | orderBy:'+name'">
-                <td>{{emp.name | uppercase}}</td>
-                <td>{{emp.dateOfBirth | date:"dd/MM/yyyy"}}</td>
-                <td>{{emp.gender | lowercase}}</td>
-                <td>{{emp.salary | number:2 }}</td>
-                <td>{{emp.salary | currency:"$": 1 }}</td>
-            </tr>
-        </table>
-    </div>
-    <br><br><hr><br><br>
-    <div ng-controller="myPosts">
-        Posts (Get posts from an API.)
-        <ul>
-            {{error}}
-            <li ng-repeat="post in posts | limitTo: 5">
-                <h1>{{post.title}}</h1>
-                {{post.body}}
-            </li>
-        </ul>
-    </div>
-    <button id="bottom"  ng-click="scrollTo('top')">Go to Top</button>
-    </section>
+            <div ng-controller="techController">
+                Technological Advancements(Render an object with each record displayed)
+                <ul>
+                    <li ng-repeat="technol in technologies">{{technol.name}}</li>
+                </ul>
+                <table border="black">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Likes</td>
+                            <td>Dislikes</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="technology in technologies">
+                            <td>
+                                {{technology.name}}
+                            </td>
+                            <td>{{technology.likes}}</td>
+                            <td>
+                                {{technology.dislikes}}
+                            </td>
+                            <td>
+                                <input type="button" value="+" ng-click="incrementLikes(technology)" />
+                            </td>
+                            <td>
+                                <input type="button" value="-" ng-click="decrementLikes(technology)" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br><br>
+            <hr><br><br>
+            <div ng-controller="myEmployees">
+                Rows to display(Filter rows in a table)
+                <input type="number" step="1" min="0" max="{{employees.length}}" ng-model="rowLimit" />
+                <br><br>
+                <table border="grey">
+                    <tr>
+                        <td>Name</td>
+                        <td>Date of birthday</td>
+                        <td>Gender</td>
+                        <td>Salary Decimals</td>
+                        <td>Salary Currency</td>
+                    </tr>
+                    <tr ng-repeat="emp in employees | limitTo:rowLimit | orderBy:'+name'">
+                        <td>{{emp.name | uppercase}}</td>
+                        <td>{{emp.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+                        <td>{{emp.gender | lowercase}}</td>
+                        <td>{{emp.salary | number:2 }}</td>
+                        <td>{{emp.salary | currency:"$": 1 }}</td>
+                    </tr>
+                </table>
+            </div>
+            <br><br>
+            <hr><br><br>
+            <div ng-controller="myPosts">
+                Posts (Get posts from an API.)
+                <ul>
+                    {{error}}
+                    <li ng-repeat="post in posts | limitTo: 5">
+                        <h1>{{post.title}}</h1>
+                        {{post.body}}
+                    </li>
+                </ul>
+            </div>
+            <button id="bottom" ng-click="scrollTo('top')">Go to Top</button>
+        </section>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
 <script src="./main.js"></script>
